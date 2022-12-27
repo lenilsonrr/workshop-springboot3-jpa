@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "tb_category")
@@ -27,7 +26,7 @@ public class Category implements Serializable {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categories")
 	private Set<Product> products = new HashSet<>();
-
+	
 	public Category() {
 	}
 
@@ -56,7 +55,7 @@ public class Category implements Serializable {
 	public Set<Product> getProducts() {
 		return products;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,5 +80,4 @@ public class Category implements Serializable {
 			return false;
 		return true;
 	}
-
 }
